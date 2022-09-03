@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+DIRECTORY=$(dirname $0)
+
+${DIRECTORY}/../vendor/bin/phpcbf.phar

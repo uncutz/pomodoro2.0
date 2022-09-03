@@ -1,0 +1,100 @@
+@font-face {
+	font-family: 'IBMPlexMono-regular';
+	src: url('./../fonts/IBMPlexMono-Regular.ttf');
+}
+
+html {
+	font-size: 20px;
+}
+
+body {
+	/*background-color: #333344;*/
+	color: whitesmoke;
+	background-color: #333333;
+	font-family: IBMPlexMono-regular;
+}
+
+section {
+	text-align: center;
+}
+
+#time-display {
+	margin: 1em 1em 0 1em;
+}
+
+#pause-play-button {
+	color: whitesmoke;
+	border: 3px solid whitesmoke;
+	background-color: transparent;
+	padding: 0.5em;
+	margin: 1em;
+	cursor: pointer;
+}
+
+h1, h2, p {
+	color: whitesmoke;
+	margin: 0;
+}
+
+.time-wrapper {
+	box-sizing: border-box;
+	margin-top: 10vh;
+}
+
+.navbar {
+	padding: 0.5em 1em;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+}
+
+.navbar__title {
+	width: 20%;
+}
+
+.navbar__content {
+	display: flex;
+	justify-content: end;
+	width: 80%;
+}
+
+.navbar__content i {
+	cursor: pointer;
+}
+
+.offcanvas__wrapper {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.41);
+}
+
+.offcanvas {
+	position: absolute;
+	width: 80vw;
+	box-sizing: border-box;
+	height: 100vh;
+	right: 0;
+	top: 0;
+	background-color: #333333;
+}
+
+.offcanvas__header {
+	width: 100%;
+	padding: 0.5em 1em;
+}
+
+.offcanvas__body {
+	width: 100%;
+	padding: 0.5em 1em;
+}
+
+.offcanvas__close {
+	cursor: pointer;
+}
+
+.offCanvasBody {
+	display: none;
+}

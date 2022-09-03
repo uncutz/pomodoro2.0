@@ -1,0 +1,28 @@
+:root {
+  --bg-color: #333333;
+  --font-color: whitesmoke;
+}
+
+html {
+  //font-size: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /*background-color: #333344;*/
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  font-family: IBMPlexMono;
+}
+
+h1, h2, h3, p {
+  color: var(--font-color);
+  margin: 0;
+}
+
+input, textarea, button {
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title class="document-title">Document</title>
+    <link rel="stylesheet" href="/library/fontawesome-free-6.1.2-web/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+    <p class="navbar__title">Pomodoro</p>
+    <div class="navbar__content">
+        <i class="fa-solid fa-gear showOffCanvas"></i>
+        <div class="offCanvasBody">
+            <h1>hi</h1>
+        </div>
+    </div>
+</nav>
+<section class="time-wrapper">
+    <h2 id="phase-display"></h2>
+    <div id="time-display">00:00</div>
+    <button id="pause-play-button"><i
+            class="fa-solid fa-play"></i></button>
+</section>
+
+<!--<script src="/test/offCanvas.js"></script>-->
+<script type="module">
+    import Timer from './Timer.js';
+
+    new Timer;
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+version: '3'
+services:
+
+  #PHP App
+  app:
+    build:
+      context: ./
+      dockerfile: .docker/dockerfile
+    image: christexe/php:7.4-fpm-alpine
+    #container_name: php_app
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ./.docker/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+
+  #Nginx Service
+  nginx:
+    image: nginx:ubuntu
+    #container_name: nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8082:80"
+    volumes:
+      - ./:/var/www/html
+      - ./.docker/conf.d/:/etc/nginx/conf.d/
+
+  database:
+    image: mariadb
+    #container_name: mysql
+    command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
+    volumes:
+      - ./.docker/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"

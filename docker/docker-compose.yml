@@ -1,0 +1,29 @@
+version: '3'
+
+networks:
+  docker-network:
+
+services:
+  php-fpm:
+    build:
+      context: ./php-image
+    #container_name: php-fpm
+    tty: true
+    volumes:
+      - ./../:/var/www/html
+    networks:
+      - docker-network
+
+  nginx:
+    build:
+      context: ./nginx-image
+    #container_name: nginx
+    ports:
+      - "8088:80"
+    volumes:
+      - ./../:/var/www/html
+      - ./nginx-image/conf.d:/etc/nginx/conf.d
+    links:
+      - php-fpm
+    networks:
+      - docker-network

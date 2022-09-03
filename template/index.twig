@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% set filePath = 'dist' %}
+    {% if constant('PROJECT_ENV') == 'dev' %}
+        {% set filePath = 'dist_dev' %}
+    {% endif %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title class="document-title">Document</title>
+    <link rel="stylesheet" href="/library/fontawesome-free-6.1.2-web/css/all.css">
+    <link rel="stylesheet" href="/{{ filePath }}/IndexMain.css">
+</head>
+<body>
+<nav class="navbar">
+    <p class="navbar__title">Pomodoro</p>
+    <div class="navbar__content">
+        <i class="fa-solid fa-gear showOffCanvas"></i>
+    </div>
+</nav>
+<section class="time-wrapper">
+    <span id="phase-display"></span>
+    <div id="time-display">00:00</div>
+    <button id="pause-play-button"><i
+                class="fa-solid fa-play"></i></button>
+</section>
+<div id="player"></div>
+
+<script src="/{{ filePath }}/IndexMain.js"></script>
+<script>
+    const IndexMain = new Module.IndexMain;
+    const SettingStorage = IndexMain.initSettingStorage();
+    const config = SettingStorage.getItem('config')
+    IndexMain.initTimer(config);
+    IndexMain.initOffCanvas();
+    document.querySelector('.showOffCanvas').addEventListener('click', () => {
+        IndexMain.initConfigScript();
+    });
+
+</script>
+
+<script>
+    //save config
+    document.addEventListener('save-config', (e) => {
+        console.log(e.detail);
+
+        SettingStorage.setItem('config', e.detail)
+
+        location.reload();
+    });
+
+    if(config.videoId) {
+        const tag            = document.createElement('script');
+        tag.src              = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        let player;
+
+        function onYouTubeIframeAPIReady()
+        {
+            player = new YT.Player('player', {
+                height:  '',
+                width:   '',
+                videoId: config.videoId
+            });
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+.config {
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+}
+
+input {
+  background-color: #232323;
+  color: var(--font-color);
+  border: none;
+}
+
+.config__header {
+  margin-bottom: 2em;
+}
+
+.config__timer {
+
+  .input-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+
+    input {
+      margin-right: 1.2em;
+      width: 2em;
+      padding: 0.2em 0.8em;
+
+
+      //disable up and down arrows
+      /* Chrome, Safari, Edge, Opera */
+      &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      /* Firefox */
+      -moz-appearance: textfield;
+    }
+  }
+}
+
+.config__music {
+
+  input {
+    height: 1.5em;
+    width: 14em;
+    padding: 0.2em 0.8em;
+  }
+}
+
+.config__footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  p {
+    font-weight: bold;
+    color: var(--font-color);
+    background-color: var(--bg-color);
+    cursor: pointer;
+    border: 3px solid var(--font-color);
+    padding: 0.25em;
+  }
+}
