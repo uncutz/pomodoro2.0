@@ -7,8 +7,8 @@ export default class ConfigScript
 
     init()
     {
-
-        const $saveBtn = document.querySelector('#save-config-button');
+        const $saveBtn      = document.querySelector('#save-config-button');
+        const $deleteButton = document.querySelector('#delete-config-button');
 
         $saveBtn.addEventListener('click', () => {
             const $link          = document.querySelector('#yt-link-input').value;
@@ -26,6 +26,11 @@ export default class ConfigScript
                         roundsBeforeLongBreak: $focusSessions
                     }
                 }));
+        });
+
+        $deleteButton.addEventListener('click', () => {
+            localStorage.removeItem('config');
+            location.reload();
         });
     }
 

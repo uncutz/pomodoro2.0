@@ -1,4 +1,4 @@
-import SettingStorage from './Storage.js';
+import LocalStorage from './Storage.js';
 
 export default class Timer
 {

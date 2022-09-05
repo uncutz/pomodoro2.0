@@ -57,6 +57,7 @@ export default class OffCanvas
     </div>
 
     <footer class="config__footer">
+        <p id="delete-config-button">Delete saved configuration</p>
         <p id="save-config-button">Save</p>
     </footer>
 </div>`;

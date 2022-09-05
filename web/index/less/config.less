@@ -43,7 +43,7 @@ input {
 
   input {
     height: 1.5em;
-    width: 14em;
+    min-width: 14em;
     padding: 0.2em 0.8em;
   }
 }
@@ -52,8 +52,11 @@ input {
   position: absolute;
   bottom: 0;
   right: 0;
+  display: flex;
+  justify-content: end;
 
   p {
+    margin-left: 1em;
     font-weight: bold;
     color: var(--font-color);
     background-color: var(--bg-color);

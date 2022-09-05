@@ -30,9 +30,9 @@
 
 <script src="/{{ filePath }}/IndexMain.js"></script>
 <script>
-    const IndexMain = new Module.IndexMain;
-    const SettingStorage = IndexMain.initSettingStorage();
-    const config = SettingStorage.getItem('config')
+    const IndexMain    = new Module.IndexMain;
+    const LocalStorage = IndexMain.initLocalStorage();
+    const config       = LocalStorage.getItem('config');
     IndexMain.initTimer(config);
     IndexMain.initOffCanvas();
     document.querySelector('.showOffCanvas').addEventListener('click', () => {
@@ -46,12 +46,12 @@
     document.addEventListener('save-config', (e) => {
         console.log(e.detail);
 
-        SettingStorage.setItem('config', e.detail)
+        LocalStorage.setItem('config', e.detail);
 
         location.reload();
     });
 
-    if(config.videoId) {
+    if (config.videoId) {
         const tag            = document.createElement('script');
         tag.src              = 'https://www.youtube.com/iframe_api';
         const firstScriptTag = document.getElementsByTagName('script')[0];
@@ -67,7 +67,26 @@
                 videoId: config.videoId
             });
         }
+
+        document.querySelector('#pause-play-button').addEventListener('click', () => {
+            pauseOrPlayVideo(player);
+        });
+
+        function pauseOrPlayVideo(player)
+        {
+            console.log(player);
+            if (player.getPlayerState() !== 1) {
+                player.playVideo();
+                return;
+            }
+
+            if (player.getPlayerState() !== 2) {
+                player.pauseVideo();
+                return;
+            }
+        }
     }
+
 
 </script>
 </body>

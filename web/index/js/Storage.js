@@ -1,4 +1,5 @@
-export default class SettingStorage {
+export default class LocalStorage
+{
     /**
      *
      * @param key {string}
