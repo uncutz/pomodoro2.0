@@ -22,15 +22,20 @@ export default class OffCanvas
 
         $canvas = $canvas.firstChild;
 
-        //display canvas
-        document.body.appendChild($canvas);
-
         //close canvas
         $canvas.querySelector('.offcanvas__close').addEventListener('click', () => {
             $canvas.remove();
         });
+
+        //display canvas
+        document.body.appendChild($canvas);
     }
 
+    /**
+     * return html for settings
+     *
+     * @return {string}
+     */
     getCanvasBody()
     {
         return `<div class="config">

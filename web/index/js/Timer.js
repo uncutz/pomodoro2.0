@@ -1,4 +1,4 @@
-import LocalStorage from './Storage.js';
+import Audio from './components/Audio.js';
 
 export default class Timer
 {
@@ -47,6 +47,7 @@ export default class Timer
         //trigger event every second and save time to roundInfo + set time in html
         this.timerWorker.addEventListener('message', (e) => {
             this.roundInfo.time = e.data.time;
+
             this.renderTime();
             if (!e.data.running) {
                 this.nextRound();
@@ -91,6 +92,7 @@ export default class Timer
         this.$timeDisplay.innerHTML                           = timeString;
         //experimental
         document.querySelector('.document-title').textContent = timeString;
+        this.initBeep()
     }
 
     /**
@@ -134,6 +136,14 @@ export default class Timer
                                              type:        'start',
                                              maxDuration: this.config[this.roundInfo.currentPhase]
                                          });
+        }
+    }
+
+    initBeep() {
+        let seconds = this.config[this.roundInfo.currentPhase] - this.roundInfo.time;
+        if(seconds <= 5) {
+            const audio = new Audio();
+            audio.beep();
         }
     }
 }
