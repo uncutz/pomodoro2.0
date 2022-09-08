@@ -1,13 +1,25 @@
 .config {
   box-sizing: border-box;
   position: relative;
-  height: 100%;
+  min-height: 100%;
+  overflow: auto;
+  padding-bottom: 6em;
 }
 
 input {
   background-color: #232323;
   color: var(--font-color);
   border: none;
+  padding: 0.2em 0.8em;
+
+  //disable up and down arrows
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  -moz-appearance: textfield;
 }
 
 .config__header {
@@ -24,18 +36,21 @@ input {
     input {
       margin-right: 1.2em;
       width: 2em;
-      padding: 0.2em 0.8em;
-
-
-      //disable up and down arrows
-      /* Chrome, Safari, Edge, Opera */
-      &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-      /* Firefox */
-      -moz-appearance: textfield;
     }
+  }
+}
+
+.config__volume {
+  display: flex;
+
+  input {
+    width: 2em;
+  }
+
+  #beep__volume-test {
+    margin-left: 2em;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
@@ -44,16 +59,19 @@ input {
   input {
     height: 1.5em;
     min-width: 14em;
-    padding: 0.2em 0.8em;
   }
 }
 
 .config__footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   display: flex;
   justify-content: end;
+  width: 90%;
+  background-color: var(--bg-color);
+  padding: 0.5em;
+  box-sizing: border-box;
 
   p {
     margin-left: 1em;

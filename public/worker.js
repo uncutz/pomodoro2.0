@@ -7,7 +7,6 @@ onmessage = (e) => {
         let time   = e.data.time || 0;
         intervalId = setInterval(() => {
             time++;
-            console.log(time)
             //time is achieved, stop timer
             if (time > e.data.maxDuration) {
                 postMessage({

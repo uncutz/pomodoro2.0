@@ -55,6 +55,12 @@ export default class OffCanvas
         <div class="input-form"><input id="focus-sessions-input" type="number" value="4"> minutes</div>
     </div>
     <hr>
+    <h2>Volume</h2><br>
+    <div class="config__volume">
+        <div class="input-form"><input id="beep__volume" type="number" value="45"> %</div>
+        <div id="beep__volume-test">Test</div>
+    </div>
+    <hr>
     <h2>Background Music</h2><br>
     <h3>Insert youtube video link here for music:</h3>
     <div class="config__music">
@@ -62,7 +68,7 @@ export default class OffCanvas
     </div>
 
     <footer class="config__footer">
-        <p id="delete-config-button">Delete saved configuration</p>
+        <p id="delete-config-button">Delete config</p>
         <p id="save-config-button">Save</p>
     </footer>
 </div>`;

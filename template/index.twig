@@ -44,13 +44,12 @@
 <script>
     //save config
     document.addEventListener('save-config', (e) => {
-        console.log(e.detail);
-
         LocalStorage.setItem('config', e.detail);
 
         location.reload();
     });
 
+    //load yt video
     if (config.videoId) {
         const tag            = document.createElement('script');
         tag.src              = 'https://www.youtube.com/iframe_api';

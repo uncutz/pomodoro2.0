@@ -1,16 +1,17 @@
 export default class Audio
 {
-    constructor()
+    constructor(volume)
     {
-        this.init();
+        this.init(volume);
     }
 
-    init()
+    init(volume)
     {
+        this.config = JSON.parse(localStorage.getItem('config'));
         this.audioContext = new AudioContext();
 
         this.primaryGainControl = this.audioContext.createGain();
-        this.primaryGainControl.gain.setValueAtTime(0.05, 0);
+        this.primaryGainControl.gain.setValueAtTime(volume ?? (this.config ? parseInt(this.config.beepVolume) : 0.45), 0);
         this.primaryGainControl.connect(this.audioContext.destination);
     }
 
@@ -19,7 +20,6 @@ export default class Audio
      */
     beep()
     {
-        console.log('beep');
         const oscillator = this.audioContext.createOscillator();
         oscillator.frequency.setValueAtTime(260, 0);
         oscillator.type = 'sine';
