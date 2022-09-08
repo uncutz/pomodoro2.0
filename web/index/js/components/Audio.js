@@ -11,7 +11,7 @@ export default class Audio
         this.audioContext = new AudioContext();
 
         this.primaryGainControl = this.audioContext.createGain();
-        this.primaryGainControl.gain.setValueAtTime(volume ?? (this.config ? parseInt(this.config.beepVolume) : 0.45), 0);
+        this.primaryGainControl.gain.setValueAtTime(volume ?? (this.config ? parseInt(this.config.beepVolume) : 0.45) ?? 0.45, 0);
         this.primaryGainControl.connect(this.audioContext.destination);
     }
 
