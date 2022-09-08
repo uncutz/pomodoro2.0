@@ -11,10 +11,10 @@ export default class ConfigScript
     {
         this.config = JSON.parse(localStorage.getItem('config')) ?? false;
         this.loadStoredValues();
-        document.querySelector('#beep__volume-test').addEventListener('click', ()=>{
+        document.querySelector('#beep__volume-test').addEventListener('click', () => {
             const volume = parseInt(document.querySelector('#beep__volume').value) / 100;
             (new Audio(volume)).beep();
-        })
+        });
 
         const $saveBtn      = document.querySelector('#save-config-button');
         const $deleteButton = document.querySelector('#delete-config-button');

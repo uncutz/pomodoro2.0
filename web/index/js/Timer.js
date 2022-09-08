@@ -9,10 +9,10 @@ export default class Timer
         this.$timeDisplay    = document.querySelector('#time-display');
         this.$displayPhase   = document.querySelector('#phase-display');
 
-        if(config) {
+        if (config) {
             this.config = config;
         } else {
-            this.config          = {
+            this.config = {
                 focus:                 1500,
                 short:                 300,
                 long:                  900,
@@ -21,7 +21,7 @@ export default class Timer
         }
 
         //temporäre Speicherung der Timer Daten
-        this.roundInfo       = {
+        this.roundInfo = {
             time:         0,
             focusNum:     1,
             currentPhase: 'focus',
@@ -92,7 +92,7 @@ export default class Timer
         this.$timeDisplay.innerHTML                           = timeString;
         //experimental
         document.querySelector('.document-title').textContent = timeString;
-        this.initBeep()
+        this.initBeep();
     }
 
     /**
@@ -139,9 +139,10 @@ export default class Timer
         }
     }
 
-    initBeep() {
+    initBeep()
+    {
         let seconds = this.config[this.roundInfo.currentPhase] - this.roundInfo.time;
-        if(seconds <= 5) {
+        if (seconds <= 5) {
             const audio = new Audio();
             audio.beep();
         }

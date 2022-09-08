@@ -22,6 +22,6 @@ onmessage = (e) => {
             }
         }, 1000);
     } else {
-        clearInterval(intervalId)
+        clearInterval(intervalId);
     }
 };

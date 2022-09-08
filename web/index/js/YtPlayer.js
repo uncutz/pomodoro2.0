@@ -1,4 +1,5 @@
-export default class YtPlayer {
+export default class YtPlayer
+{
     constructor(videoLink)
     {
         let position = videoLink.lastIndexOf('=');

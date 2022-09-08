@@ -4,7 +4,8 @@ export default class LocalStorage
      *
      * @param key {string}
      */
-    getItem(key) {
+    getItem(key)
+    {
         return JSON.parse(window.localStorage.getItem(key));
     }
 
@@ -13,7 +14,8 @@ export default class LocalStorage
      * @param key {string}
      * @param value {string}
      */
-    setItem(key, value) {
-        window.localStorage.setItem(key, JSON.stringify(value))
+    setItem(key, value)
+    {
+        window.localStorage.setItem(key, JSON.stringify(value));
     }
 }

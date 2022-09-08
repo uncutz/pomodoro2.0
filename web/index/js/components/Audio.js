@@ -7,9 +7,9 @@ export default class Audio
 
     init(volume)
     {
-        this.config = JSON.parse(localStorage.getItem('config'));
-        this.audioContext = new AudioContext();
-        let gainNumber = volume ?? (this.config ? parseFloat(this.config.beepVolume) : 0.45)
+        this.config             = JSON.parse(localStorage.getItem('config'));
+        this.audioContext       = new AudioContext();
+        let gainNumber          = volume ?? (this.config ? parseFloat(this.config.beepVolume) : 0.45);
         this.primaryGainControl = this.audioContext.createGain();
         this.primaryGainControl.gain.setValueAtTime(gainNumber, 0);
         this.primaryGainControl.connect(this.audioContext.destination);
