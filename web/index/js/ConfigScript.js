@@ -63,7 +63,7 @@ export default class ConfigScript
             document.querySelector('#short-break-input').value    = (this.config.short / 60) ?? 5;
             document.querySelector('#long-break-input').value     = (this.config.long / 60) ?? 15;
             document.querySelector('#focus-sessions-input').value = this.config.roundsBeforeLongBreak ?? 4;
-            document.querySelector('#beep__volume').value         = this.config.beepVolume * 100 ?? 45;
+            document.querySelector('#beep__volume').value         = parseFloat(this.config.beepVolume) * 100 ?? 45;
         }
     }
 }

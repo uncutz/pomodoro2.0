@@ -9,7 +9,7 @@ export default class Audio
     {
         this.config = JSON.parse(localStorage.getItem('config'));
         this.audioContext = new AudioContext();
-        let gainNumber = volume ?? (this.config ? parseInt(this.config.beepVolume) : 0.45)
+        let gainNumber = volume ?? (this.config ? parseFloat(this.config.beepVolume) : 0.45)
         this.primaryGainControl = this.audioContext.createGain();
         this.primaryGainControl.gain.setValueAtTime(gainNumber, 0);
         this.primaryGainControl.connect(this.audioContext.destination);
@@ -27,7 +27,7 @@ export default class Audio
         const oscillatorGain = this.audioContext.createGain();
         oscillatorGain.gain.setValueAtTime(1.5, 0);
         oscillatorGain.gain.exponentialRampToValueAtTime(
-            0.02,
+            0.001,
             this.audioContext.currentTime + 0.5
         );
 
