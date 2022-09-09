@@ -39,39 +39,39 @@ export default class OffCanvas
     getCanvasBody()
     {
         return `<div class="config">
-    <header class="config__header">
-        <h1># Settings #</h1>
-    </header>
-    <h2>Timer</h2><br>
-    <div class="config__timer">
-        <span>Focus:</span>
-        <div class="input-form"><input id="focus-duration-input" type="number" value="25"> minutes</div>
-        <span>Short Break:</span>
-        <div class="input-form"><input id="short-break-input" type="number" value="5"> minutes</div>
-        <span>Long Break:</span><br>
-        <div class="input-form"><input id="long-break-input" type="number" value="15"> minutes</div>
-        <span>Focus Sessions:</span><br>
-        <label>Number of focus sessions between long breaks</label><br>
-        <div class="input-form"><input id="focus-sessions-input" type="number" value="4"> minutes</div>
-    </div>
-    <hr>
-    <h2>Volume</h2><br>
-    <div class="config__volume">
-        <div class="input-form"><input id="beep__volume" type="number" value="45"> %</div>
-        <div id="beep__volume-test">Test</div>
-    </div>
-    <hr>
-    <h2>Background Music</h2><br>
-    <h3>Insert youtube video link here for music:</h3>
-    <div class="config__music">
-        <input id="yt-link-input" type="text" placeholder="https://youtu.be/liF6L9YUg2A">
-    </div>
-
-    <footer class="config__footer">
-        <p id="delete-config-button">Delete config</p>
-        <p id="save-config-button">Save</p>
-    </footer>
-</div>`;
+                    <header class="config__header">
+                        <h1># Settings #</h1>
+                    </header>
+                    <h2>Timer</h2><br>
+                    <div class="config__timer">
+                        <span>Focus:</span>
+                        <div class="input-form"><input id="focus-duration-input" type="number" value="25"> minutes</div>
+                        <span>Short Break:</span>
+                        <div class="input-form"><input id="short-break-input" type="number" value="5"> minutes</div>
+                        <span>Long Break:</span><br>
+                        <div class="input-form"><input id="long-break-input" type="number" value="15"> minutes</div>
+                        <span>Focus Sessions:</span><br>
+                        <label>Number of focus sessions between long breaks</label><br>
+                        <div class="input-form"><input id="focus-sessions-input" type="number" value="4"> minutes</div>
+                    </div>
+                    <hr>
+                    <h2>Volume</h2><br>
+                    <div class="config__volume">
+                        <div class="input-form"><input id="beep__volume" type="number" value="45"> %</div>
+                        <div id="beep__volume-test">Test</div>
+                    </div>
+                    <hr>
+                    <h2>Background Music</h2><br>
+                    <p>Insert youtube video link here for music:</p>
+                    <div class="config__music">
+                        <input id="yt-link-input" type="text" placeholder="https://youtu.be/liF6L9YUg2A">
+                    </div>
+                
+                    <footer class="config__footer">
+                        <p id="delete-config-button">Delete config</p>
+                        <p id="save-config-button">Save</p>
+                    </footer>
+                </div>`;
     }
 }
 

@@ -4,7 +4,6 @@
 use Backend\Container;
 use jpan\source\Dependencies;
 use Slim\Factory\AppFactory;
-use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
 
 require __DIR__ . '/../vendor/autoload.php';
