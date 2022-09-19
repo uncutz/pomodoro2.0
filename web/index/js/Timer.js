@@ -79,7 +79,8 @@ export default class Timer
     renderTime()
     {
         let seconds = this.config[this.roundInfo.currentPhase] - this.roundInfo.time;
-        if (seconds < 0) {
+        if (seconds <= 0) {
+            this.initBeep();
             this.nextRound();
             return;
         }
@@ -144,7 +145,11 @@ export default class Timer
         let seconds = this.config[this.roundInfo.currentPhase] - this.roundInfo.time;
         if (seconds <= 5) {
             const audio = new Audio();
-            audio.beep();
+            if (seconds === 0) {
+                audio.endBeep();
+            } else {
+                audio.beep();
+            }
         }
     }
 }

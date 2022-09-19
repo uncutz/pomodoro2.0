@@ -36,4 +36,26 @@ export default class Audio
         oscillator.start();
         oscillator.stop(this.audioContext.currentTime + 0.5);
     }
+
+    /**
+     * play a beep tone
+     */
+    endBeep()
+    {
+        const oscillator = this.audioContext.createOscillator();
+        oscillator.frequency.setValueAtTime(200, 0);
+        oscillator.type = 'sine';
+
+        const oscillatorGain = this.audioContext.createGain();
+        oscillatorGain.gain.setValueAtTime(1.5, 0);
+        oscillatorGain.gain.exponentialRampToValueAtTime(
+            0.001,
+            this.audioContext.currentTime + 2.5
+        );
+
+        oscillatorGain.connect(this.primaryGainControl);
+        oscillator.connect(oscillatorGain);
+        oscillator.start();
+        oscillator.stop(this.audioContext.currentTime + 2.5);
+    }
 }

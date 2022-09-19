@@ -10,7 +10,7 @@ onmessage = (e) => {
             //time is achieved, stop timer
             if (time > e.data.maxDuration) {
                 postMessage({
-                                time:    time - 1,
+                                time:    time,
                                 running: false
                             });
                 clearInterval(intervalId);
